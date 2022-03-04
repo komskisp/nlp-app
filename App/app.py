@@ -20,27 +20,22 @@ def get_prediction_proba(docx):
 
 emotions_emoji_dict = {
     'anger': '😡',
-    'disgust': '😤',
+    'disgust': '😬',
     'fear': '😨',
     'happiness': '😃',
     'neutral': '😐',
     'sadness': '😢',
     'surprise': '😮',
+    'contempt': '😑',
+    'valence': '😀',
+    'engagement': '😀',
     'joy': '😃',
-    'contempt': '😒',
-    'nerveous': '😕',
-    'guilt': '😧',
-    'shame': '😔',
     'love': '😍',
-    'relief': '😌',
-    'boredom': '😶',
-    'interest': '😎',
-    'pride': '😤',
-    'grief': '😢',
     'sorrow': '😢',
-
+    
 }
 
+#Main Application
 def main():
     st.title('Emotion Classifier App')
     menu = ['Home', 'Monitor', 'About']
@@ -77,8 +72,8 @@ def main():
                 proba_df_clean.columns =  ['Emotions', 'Probability' ]
 
                 fig = alt.Chart(proba_df_clean).mark_bar().encode(
-                    x='emotions',
-                    y='probability',
+                    x='Emotions',
+                    y='Probability',
                     color = 'Emotions')
                 st.altair_chart(fig, use_container_width=True)
                 
